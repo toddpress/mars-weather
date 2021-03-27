@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   viewBox="0 0 1728 1296" data-not-used-actual-coordinates="304 209 466 394" style="enable-background:new 0 0 1728 1296;" xml:space="preserve">
+<style type="text/css">
+  .st0{fill:#B3B3B3;}
+  .st1{fill:#FFFFFF;}
+  .st2{opacity:0.2;fill:#231F20;}
+  .st3{opacity:0.3;fill:#231F20;}
+  .st4{clip-path:url(#SVGID_2_);fill:#BBBDBF;}
+  .st5{clip-path:url(#SVGID_4_);fill:#D0D2D3;}
+  .st6{fill:#666666;}
+  .st7{font-family:'Helvetica';}
+  .st8{font-size:24px;}
+
+  #planet-mask,
+  #planet-mask-clip-path {
+
+  }
+
+  #satellite-animated g,
+  #satellite-animated-dark g,
+  #satellite-animated-dark-shim g {
+    transform: rotate3d(1, 0, 0.65, 82.5deg);
+  }
+
+  #another-satellite g,
+  #another-satellite-dark g,
+  #another-satellite-dark-shim g {
+    transform: scale(0.875) rotate3d(1, 1, 0.9, 165deg);
+  }
+
+  @keyframes orbit {
+    0% {
+      transform: translateX(0) rotate(0deg);
+    }
+    100% {
+      transform: translateX(0) rotate(-360deg);
+    }
+  }
+
+  #satellite-animated path,
+  #satellite-animated-dark path {
+    animation-name: orbit;
+    animation-duration: 3s;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    /*
+    animation-delay: 0;
+    animation-play-state: playing;
+    animation-direction: forwards;
+    */
+  }
+
+  @keyframes another-orbit {
+    0% {
+      transform: translateX(0) rotate(90deg);
+    }
+    100% {
+      transform: translateX(0) rotate(-270deg);
+    }
+  }
+
+  #another-satellite path,
+  #another-satellite-dark path {
+    animation-name: another-orbit;
+    animation-duration: 3s;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  #another-satellite-dark-shim path {
+    transform: translateX(0) rotate(297.5deg);
+  }
+
+  #satellite-animated,
+  #satellite-animated-dark,
+  #satellite-animated-dark-shim,
+  #another-satellite,
+  #another-satellite-dark,
+  #another-satellite-dark-shim {
+    display: none;
+  }
+  @supports (transform: rotate(0)) and (display: unset) and (animation-fill-mode: both) {
+    #satellite-animated-static,
+    #satellite-animated-static-dark,
+    #another-satellite-static,
+    #another-satellite-static-dark {
+      display: none;
+    }
+
+    #satellite-animated,
+    #satellite-animated-dark,
+    #satellite-animated-dark-shim,
+    #another-satellite,
+    #another-satellite-dark,
+    #another-satellite-dark-shim {
+      display: unset;
+    }
+  }
+</style>
+<!--
+<rect x="21.2" y="20.9" class="st0" width="1686.8" height="1254.2"/>
+-->
+<g>
+  <path id="another-satellite-static" class="st1" d="M788.6,892.5c-174.4,100.1-164.1-93.8-83-252.3c46-89.8,110.3-168.2,152-207.5
+    c138.3-130.4,238.9-76.6,156.9,154.3c-26.5,74.7-65.4,127.9-94.9,177.1c-22.5,37.6-72,61.6-52,75.3c22.4,15.4,62.7-71.6,62.7-71.6
+    c31.5-48.8,61-100.4,89.5-169.5c65.2-157.8,36.5-305.8-104.2-220.3C796.2,450.5,693.7,622.2,657.9,739
+    c-16.5,54-54.5,263.7,129.8,155.7"/>
+  <path id="satellite-animated-static" class="st1" d="M1059.5,850.4c233.2-13.1,100.3-195.3-79.1-298.2C878.8,493.8,766.5,458.3,701,446.5
+    c-217.2-39.2-281.1,76.9-54.9,249.6c73.1,55.9,144.7,83.1,204.6,112.3c45.7,22.3,109.1,14.4,98.4,40.3
+    c-12.1,29.2-106.4-29.9-106.4-29.9c-61.6-27.5-123-59-194.5-108.2c-163.5-112.3-229.4-274.5-38.3-280.5
+    c162.2-5.1,370.8,97.1,479.7,188.1c50.3,42,220.2,222-27.7,233.8"/>
+  <path class="st1" d="M730.1,764c20,15,37-37,99,0c19,12,43-39,65-39c21.6,0,54.9,58.1,56,60c-0.4-0.8-6.4-12.3,9.4-36.4
+    c16.3-25,81.8-88.6,81.8-88.6c0-107.1-86.9-194-194-194s-194,86.9-194,194C653.2,660,710.1,749,730.1,764z M944.6,623
+    c10.2,0,18.5,8.3,18.5,18.5c0,10.2-8.3,18.5-18.5,18.5c-10.2,0-18.5-8.3-18.5-18.5C926.1,631.3,934.3,623,944.6,623z M912.1,662.5
+    c4.1,0,7.5,3.4,7.5,7.5c0,4.1-3.4,7.5-7.5,7.5c-4.1,0-7.5-3.4-7.5-7.5C904.6,665.9,907.9,662.5,912.1,662.5z"/>
+  <path class="st1" d="M909,476.1C807.5,442,697.5,496.7,663.3,598.2c-34.1,101.6,20.6,211.6,122.1,245.7
+    C887,878,997,823.4,1031.1,721.8C1065.3,620.2,1010.6,510.2,909,476.1z"/>
+  <path class="st2" d="M663.3,598.2c-34.1,101.6,20.6,211.6,122.1,245.7C887,878,997,823.4,1031.1,721.8c0,0-82.4,39.4-105.8,57.9
+    c-23.4,18.5-30.5,51.6-30.5,51.6s-3.1-43.5-24-50.5c-20.9-7-64,12.1-64,12.1s-89.7-50.9-103.8-71.5
+    C688.9,700.7,663.3,598.2,663.3,598.2z"/>
+  <circle class="st3" cx="945.4" cy="673.5" r="18.5"/>
+  <circle class="st2" cx="912.1" cy="670" r="7.5"/>
+  <g>
+    <defs>
+      <path id="SVGID_1_" d="M653.2,660c0,107.1,86.9,194,194,194s194-86.9,194-194S653.2,552.9,653.2,660z"/>
+    </defs>
+    <clipPath id="SVGID_2_">
+      <use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+    </clipPath>
+    <path id="satellite-animated-static-dark"  class="st4" d="M1059.5,850.4c233.2-13.1,100.3-195.3-79.1-298.2C878.8,493.8,766.5,458.3,701,446.5
+      c-217.2-39.2-281.1,76.9-54.9,249.6c73.1,55.9,144.7,83.1,204.6,112.3c45.7,22.3,109.1,14.4,98.4,40.3
+      c-12.1,29.2-106.4-29.9-106.4-29.9c-61.6-27.5-123-59-194.5-108.2c-163.5-112.3-229.4-274.5-38.3-280.5
+      c162.2-5.1,370.8,97.1,479.7,188.1c50.3,42,220.2,222-27.7,233.8"/>
+  </g>
+  <circle class="st2" cx="895.4" cy="573.5" r="35"/>
+  <path class="st1" d="M912.5,465.7c-107.3-36-223.5,21.7-259.5,129s21.7,223.5,129,259.5s223.5-21.7,259.5-129
+    C1077.6,618,1019.8,501.8,912.5,465.7z M1029.7,721.3c-33.8,100.8-143,155-243.7,121.1s-155-143-121.1-243.7s143-155,243.7-121.1
+    C1009.3,511.4,1063.5,620.6,1029.7,721.3z"/>
+  <g id="satellite-animated" transform="translate(842.4 641.52)">
+    <g data-transform-2="matrix(1, -0, 0, 0.5, 0, 0)" data-transform="matrix(0.866, -0.5, 0.25, 0.433, 80, 80)">
+      <!--
+      <circle cx="0" cy="0" r="375" stroke="white" fill="transparent" stroke-width="15" stroke-dasharray="1500 300" stroke-dashoffset="0">
+      </circle>
+      -->
+      <path fill="white" d="M0-375c-209,0-379,170-379,379c0,165.2,106.3,306.1,254,357.9c9.9,3.5,15.9,10.5,26.1,13.1c0,0,24-2.8,24-12.7 s-18-15.7-18-15.7c-7.7-2.1-17.2-0.5-24.6-3.1C-258.1,294.7-359.2,161-359.2,4C-359.2-194-198.1-355.2,0-355.2S359.2-194,359.2,4 c0,156-99.9,289-239.1,338.6c3.5,5.8-1-4.3,2.6,1.4C267.5,290.7,379,167.2,379,4C379-205,209-375,0-375z"/>
+    </g>
+  </g>
+
+  <circle id="planet-mask" cx="847" cy="660" r="192" fill="rgba(255, 0, 0, 0)"/>
+  <clipPath id="planet-mask-clip-path">
+    <use xlink:href="#planet-mask" />
+  </clipPath>
+
+  <!--
+  <circle id="planet-mask" cx="847" cy="660" r="205" fill="rgba(255, 0, 0, 0.5)"/>
+  <clipPath id="planet-mask-clip-path">
+    <circle id="planet-mask" cx="847" cy="660" r="205" fill="rgba(255, 0, 0, 0.5)"/>
+  </clipPath>
+  -->
+
+  <g clip-path="url(#planet-mask-clip-path)">
+    <g id="satellite-animated-dark" transform="translate(842.4 641.52)">
+      <g data-transform-2="matrix(1, -0, 0, 0.5, 0, 0)" data-transform="matrix(0.866, -0.5, 0.25, 0.433, 80, 80)">
+        <!--
+        <circle cx="0" cy="0" r="375" stroke="#BBBDBF" fill="transparent" stroke-width="15" stroke-dasharray="1500 300" stroke-dashoffset="0">
+        </circle>
+        -->
+        <path fill="#BBBDBF" d="M0-375c-209,0-379,170-379,379c0,165.2,106.3,306.1,254,357.9c9.9,3.5,15.9,10.5,26.1,13.1c0,0,24-2.8,24-12.7 s-18-15.7-18-15.7c-7.7-2.1-17.2-0.5-24.6-3.1C-258.1,294.7-359.2,161-359.2,4C-359.2-194-198.1-355.2,0-355.2S359.2-194,359.2,4 c0,156-99.9,289-239.1,338.6c3.5,5.8-1-4.3,2.6,1.4C267.5,290.7,379,167.2,379,4C379-205,209-375,0-375z"/>
+      </g>
+    </g>
+    <g id="satellite-animated-dark-shim" transform="translate(842.4 641.52)">
+      <g>
+        <!--
+        <circle cx="0" cy="0" r="375" stroke="white" fill="transparent" stroke-width="19" stroke-dasharray="1500 400" stroke-dashoffset="1300">
+        </circle>
+        -->
+        <path fill="white" stroke="white" stroke-width="25" d="M0-375c-209,0-379,170-379,379c0,165.2,106.3,306.1,254,357.9c9.9,3.5,15.9,10.5,26.1,13.1c0,0,24-2.8,24-12.7 s-18-15.7-18-15.7c-7.7-2.1-17.2-0.5-24.6-3.1C-258.1,294.7-359.2,161-359.2,4C-359.2-194-198.1-355.2,0-355.2S359.2z"/>
+      </g>
+    </g>
+  </g>
+  <g id="another-satellite-static-dark">
+    <defs>
+      <path id="SVGID_3_" d="M909,476.1C807.5,442,697.5,496.7,663.3,598.2c-34.1,101.6,20.6,211.6,122.1,245.7
+        C887,878,825.7,771.6,859.9,670C894,568.4,1010.6,510.2,909,476.1z"/>
+    </defs>
+    <clipPath id="SVGID_4_">
+      <use xlink:href="#SVGID_3_"  style="overflow:visible;"/>
+    </clipPath>
+    <path id="satellite-b-masked" class="st5" d="M788.6,892.5c-174.4,100.1-164.1-93.8-83-252.3c46-89.8,110.3-168.2,152-207.5
+      c138.3-130.4,238.9-76.6,156.9,154.3c-26.5,74.7-65.4,127.9-94.9,177.1c-22.5,37.6-72,61.6-52,75.3c22.4,15.4,62.7-71.6,62.7-71.6
+      c31.5-48.8,61-100.4,89.5-169.5c65.2-157.8,36.5-305.8-104.2-220.3C796.2,450.5,693.7,622.2,657.9,739
+      c-16.5,54-54.5,263.7,129.8,155.7"/>
+  </g>
+
+  <g id="another-satellite" transform="translate(846.72 641.52)">
+    <g>
+      <path fill="white" d="M0-375c-209,0-379,170-379,379c0,165.2,106.3,306.1,254,357.9c9.9,3.5,15.9,10.5,26.1,13.1c0,0,24-2.8,24-12.7 s-18-15.7-18-15.7c-7.7-2.1-17.2-0.5-24.6-3.1C-258.1,294.7-359.2,161-359.2,4C-359.2-194-198.1-355.2,0-355.2S359.2-194,359.2,4 c0,156-99.9,289-239.1,338.6c3.5,5.8-1-4.3,2.6,1.4C267.5,290.7,379,167.2,379,4C379-205,209-375,0-375z"/>
+    </g>
+  </g>
+  <g clip-path="url(#planet-mask-clip-path)">
+    <g id="another-satellite-dark" transform="translate(846.72 641.52)">
+      <g>
+        <path fill="#D0D2D3" stroke="#D0D2D3" stroke-width="5" d="M0-375c-209,0-379,170-379,379c0,165.2,106.3,306.1,254,357.9c9.9,3.5,15.9,10.5,26.1,13.1c0,0,24-2.8,24-12.7 s-18-15.7-18-15.7c-7.7-2.1-17.2-0.5-24.6-3.1C-258.1,294.7-359.2,161-359.2,4C-359.2-194-198.1-355.2,0-355.2S359.2-194,359.2,4 c0,156-99.9,289-239.1,338.6c3.5,5.8-1-4.3,2.6,1.4C267.5,290.7,379,167.2,379,4C379-205,209-375,0-375z"/>
+      </g>
+    </g>
+    <g id="another-satellite-dark-shim" transform="translate(846.72 641.52)">
+      <g>
+        <path fill="white" stroke="white" stroke-width="25" d="M0-375c-209,0-379,170-379,379c0,165.2,106.3,306.1,254,357.9c9.9,3.5,15.9,10.5,26.1,13.1c0,0,24-2.8,24-12.7 s-18-15.7-18-15.7c-7.7-2.1-17.2-0.5-24.6-3.1C-258.1,294.7-359.2,161-359.2,4C-359.2-194-198.1-355.2,0-355.2S359.2z"/>
+      </g>
+    </g>
+  </g>
+</g>
+<!--
+<text transform="matrix(1 0 0 1 1506.4121 1244.2238)" class="st6 st7 st8">Mars Now Icon</text>
+-->
+
+</svg>
