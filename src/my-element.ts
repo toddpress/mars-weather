@@ -63,7 +63,7 @@ export class MyElement extends LitElement {
       .then((res) => res.json())
       .catch((err) => console.error(err));
     this.soles = soles.slice(0, 6);
-    this.searchParams = { sol: this.soles[0].sol, camera: 'fhaz' };
+    this.searchParams = { sol: this.soles[6].sol, camera: 'fhaz' };
     console.log(this.searchParams)
     super.firstUpdated(changed);
   }
