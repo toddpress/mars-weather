@@ -1,8 +1,7 @@
-import './sol';
+import './sol-card';
+import './mw-bg-picture';
 
 import { LitElement, css, customElement, html, property } from 'lit-element';
-
-import { celsiusToFahrenheit } from './../util.js';
 
 /**
  * An example element.
@@ -28,6 +27,7 @@ export class MyElement extends LitElement {
       /* max-width: 800px; */
     }
     .wrapper {
+      position: relative;
       width: 100%;
     }
     .weekly-forecast {
@@ -41,23 +41,20 @@ export class MyElement extends LitElement {
 
   @property({ type: Array })
   soles = [];
+  @property()
+  searchParams: any;
 
   render() {
     return html`
-      <div class="space-pic"></div>
+    <div class="wrapper">
+      <mw-bg-picture .params=${this.searchParams}></mw-bg-picture>
       <ul class="weekly-forecast">
         ${this.soles.map((s) => html`<sol-card .sol=${s}></sol-card>`)}
       </ul>
+    </div>
     `;
   }
 
-  private _onClick() {
-    this.count++;
-  }
-
-  foo(): string {
-    return 'foo';
-  }
 
   async firstUpdated(changed: Map<string | number | symbol, unknown>) {
     let { descriptions, soles } = await fetch(
@@ -66,7 +63,8 @@ export class MyElement extends LitElement {
       .then((res) => res.json())
       .catch((err) => console.error(err));
     this.soles = soles.slice(0, 6);
-    console.log(this.soles);
+    this.searchParams = { sol: this.soles[0].sol, camera: 'fhaz' };
+    console.log(this.searchParams)
     super.firstUpdated(changed);
   }
 }

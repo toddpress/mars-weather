@@ -17,6 +17,8 @@ export class SolCard extends LitElement {
       align-items: center;
       padding: 0.8rem 1.6rem;
       background-color: rgba(0, 0, 0, 0.25);
+      color: rgba(255,255,255,0.8);
+      font-weight: 300;
     }
     .forecast {
         margin-top: 0.2rem;
@@ -53,17 +55,6 @@ export class SolCard extends LitElement {
   //   wind_direction: '--';
   //   wind_speed: '--';
 
-  //   @property({ type: String, converter: {
-  //       fromAttribute(dateStr: string) {
-  //         let date = new Date(dateStr);
-  //         return new Intl.DateTimeFormat('en', { dateStyle: 'long' }).format(date);
-  //       },
-  //       toAttribute(propStr: string) {
-  //         return new Intl.DateTimeFormat("en" , {
-  //             dateStyle: 'short'
-  //         }).format(new Date(propStr));
-  //       }
-  //   } })
   @property({ type: Object })
   sol = {
     abs_humidity: '--',
@@ -85,20 +76,6 @@ export class SolCard extends LitElement {
     wind_direction: '--',
     wind_speed: '--',
   };
-
-  @property({ type: String })
-  summary = '--';
-  /**
-   * High - Number - a temperature high for sol, in celsius.
-   */
-  @property({ type: Number })
-  high = '--';
-
-  /**
-   * Low - Number - a temperature low for sol, in celsius.
-   */
-  @property({ type: Number })
-  low = '--';
 
   render() {
     let { atmo_opacity, terrestrial_date, min_temp, max_temp, sol } = this.sol;
