@@ -119,6 +119,7 @@ export class App extends LitElement {
   }
 
   async firstUpdated(changed: Map<string | number | symbol, unknown>) {
+    // @TODO - use descriptions data to populate tooltip when hovering respective props of a sol.
     const { descriptions, soles } = await fetch(NASA_ROVER_DATA_URL)
       .then((res) => res.json())
       .catch((err) => console.error(err));
@@ -133,6 +134,8 @@ export class App extends LitElement {
   }
   _onSolClick(evt: Event) {
     evt.preventDefault();
+    // @TODO - 1. implement animated detail overlay cmpt, use property this.solDetailShow to toggle visibility.
+    // @TODO - 2. animate detail cmpt in with expanding collapsing mw-sol-card transitions
     console.log(evt.target.sol);
   }
 }
