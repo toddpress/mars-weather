@@ -5,11 +5,30 @@
     <link rel="icon" type="image/svg+xml" href="src/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + Lit-Element App</title>
-    <script type="module" src="/src/my-element.ts"></script>
+    <script type="module" src="/src/mw-app.ts"></script>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit;
+      }
+      html {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        min-height: 100vh;
+      }
+      body {
+        margin: 0;
+        font-family: sans-serif;
+        padding-bottom: 2.4rem;
+      }
+    </style>
   </head>
   <body>
-    <my-element>
+    <mw-app>
       <p>This is child content</p>
-    </my-element>
+    </mw-app>
   </body>
 </html>

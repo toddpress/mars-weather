@@ -5,7 +5,7 @@
   "exports": {
     ".": "./dist/my-vite-element.es.js"
   },
-  "types": "types/my-element.d.ts",
+  "types": "types/mw-app.d.ts",
   "files": [
     "dist",
     "types"

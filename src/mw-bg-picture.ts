@@ -1,5 +1,17 @@
-import { DEFAULT_BG_PIC, NASA_API_KEY, NASA_PIC_URL } from '../consts';
-import { LitElement, css, customElement, html, property, query } from 'lit-element';
+import {
+  DEFAULT_BG_PIC,
+  NASA_API_KEY,
+  NASA_APOD_URL,
+  NASA_PIC_URL,
+} from '../consts';
+import {
+  LitElement,
+  css,
+  customElement,
+  html,
+  property,
+  query,
+} from 'lit-element';
 
 /**
  * An example element.
@@ -9,28 +21,10 @@ import { LitElement, css, customElement, html, property, query } from 'lit-eleme
  */
 @customElement('mw-bg-picture')
 export class BgPicture extends LitElement {
-  constructor() {
-    super();
-  }
   static styles = css`
     :host {
       display: block;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin: auto;
-      z-index: -1;
-      padding: 0.8rem 1.6rem;
-    }
-    .mw-bg-picture {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin: auto;
+      width: 100%;
     }
     .forecast {
       margin-top: 0.2rem;
@@ -43,13 +37,16 @@ export class BgPicture extends LitElement {
       height: 2px;
       background-color: rgba(255, 255, 255, 0.5);
     }
-
     .sol {
       font-weight: bold;
     }
   `;
+
   @query('.mw-bg-picture')
   bgEl: any;
+
+  @property({ type: Boolean })
+  apod = false;
 
   @property({ type: Object })
   params: any;
@@ -62,22 +59,19 @@ export class BgPicture extends LitElement {
     `;
   }
   async fetchPic(params: any) {
-    console.log({ params });
     const search_params = new URLSearchParams(params).toString();
-    console.log('params: ', search_params);
-
-    const { photos } = await fetch(
-      `${NASA_PIC_URL}?${search_params}&api_key=${NASA_API_KEY}`
-    )
+    const url = this.apod
+      ? `${NASA_APOD_URL}`
+      : `${NASA_PIC_URL}?${search_params}&api_key=${NASA_API_KEY}`;
+    const data = await fetch(url)
       .then((data) => data.json())
       .catch((err) => console.error(err));
-
-    const { img_src } = photos[0];
-    const bgPic = img_src || DEFAULT_BG_PIC;
-
-    console.log(photos);
-
-    return bgPic;
+    const src = this.apod
+      ? data.url
+      : data.photos[0]
+      ? data.photos[0].img_src
+      : DEFAULT_BG_PIC;
+    return src;
   }
   async updated(changed: Map<string | number | symbol, unknown>) {
     super.firstUpdated(changed);
