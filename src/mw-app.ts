@@ -41,6 +41,13 @@ export class App extends LitElement {
       text-shadow: rgb(0 0 0 / 42%) -1px 1px 0px, rgb(0 0 0 / 42%) 1px 1px 0px,
         rgb(0 0 0 / 42%) 1px -1px 0px, rgb(0 0 0 / 42%) -1px -1px 0px,
         rgb(0 0 0 / 1) 0px 0px 3px;
+      opacity: 1;
+      cursor: default;
+      transition: all 300ms ease-in-out;
+      transition-delay: calc(6 * 60ms);
+    }
+    h2.hidden {
+      opacity: 0;
     }
     .weekly-forecast {
       display: inline-flex;
@@ -66,11 +73,6 @@ export class App extends LitElement {
       opacity: 1;
       transition: all 300ms ease-in-out;
     }
-    ms-sol-card[class='hidden'] {
-      opacity: 0;
-      pointer-events: none;
-      cursor: default;
-    }
     mw-sol-card:not(*:first-of-type) {
       margin-left: 1.6rem;
     }
@@ -90,19 +92,18 @@ export class App extends LitElement {
       <div class="mw-app">
         <mw-bg-picture .params=${this.searchParams}>
           <div class="bg-picture__inner">
-            <h2>Mars Weather</h2>
+            <h2 class=${this.solDetailShown ? 'hidden' : 'shown'}>
+              Mars Weather
+            </h2>
             <ul class="weekly-forecast">
               ${this.soles.map(
                 (s, i) =>
                   html`<mw-sol-card
                     .sol=${s}
-                    class=${this.solDetailShown === false ? 'shown' : 'hidden'}
-                    style=${`opacity: ${
-                      this.solDetailShown ? '0' : '1'
-                    }; pointer-events: ${
-                      this.solDetailShown ? 'none' : 'normal'
-                    }; cursor: ${
-                      this.solDetailShown ? 'default' : 'pointer'
+                    style=${`${
+                      this.solDetailShown
+                        ? `opacity: 0; pointer-events: none; cursor: default;`
+                        : ``
                     }; transition-delay: ${i * 60}ms`}
                     @click=${this._onSolClick}
                   ></mw-sol-card>`
@@ -121,7 +122,7 @@ export class App extends LitElement {
     const { descriptions, soles } = await fetch(NASA_ROVER_DATA_URL)
       .then((res) => res.json())
       .catch((err) => console.error(err));
-    this.soles = soles.slice(0, 6).reverse();
+    this.soles = soles.slice(0, 7).reverse();
     let { sol } = this.soles.slice(-1)[0];
     this.searchParams = { sol, camera: 'fhaz' };
     super.firstUpdated(changed);
