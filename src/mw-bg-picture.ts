@@ -13,6 +13,10 @@ import {
   query,
 } from 'lit-element';
 
+import { connect } from 'pwa-helpers';
+import { fetchNasaPic } from './store/actions';
+import { store } from './store';
+
 /**
  * An example element.
  *
@@ -20,7 +24,7 @@ import {
  * @csspart button - The button
  */
 @customElement('mw-bg-picture')
-export class BgPicture extends LitElement {
+export class BgPicture extends connect(store)(LitElement) {
   static styles = css`
     :host {
       display: block;
@@ -51,6 +55,9 @@ export class BgPicture extends LitElement {
   @property({ type: Object })
   params: any;
 
+  @property({ type: String })
+  backgroundImageSrc: any;
+
   render() {
     return html`
       <div class="mw-bg-picture">
@@ -58,25 +65,14 @@ export class BgPicture extends LitElement {
       </div>
     `;
   }
-  async fetchPic(params: any) {
-    const search_params = new URLSearchParams(params).toString();
-    const url = this.apod
-      ? `${NASA_APOD_URL}`
-      : `${NASA_PIC_URL}?${search_params}&api_key=${NASA_API_KEY}`;
-    const data = await fetch(url)
-      .then((data) => data.json())
-      .catch((err) => console.error(err));
-    const src = this.apod
-      ? data.url
-      : data.photos[0]
-      ? data.photos[0].img_src
-      : DEFAULT_BG_PIC;
-    return src;
+  stateChanged(state) {
+    this.params = state.searchParams;
+    this.backgroundImageSrc = state.backgroundImageSrc;
   }
   async updated(changed: Map<string | number | symbol, unknown>) {
     super.firstUpdated(changed);
-    const background = await this.fetchPic(this.params);
-    this.bgEl.style = `background: url(${background}) no-repeat center center; `;
+    await store.dispatch(fetchNasaPic());
+    this.bgEl.style = `background: url(${this.backgroundImageSrc}) no-repeat center center; `;
     this.bgEl.style.backgroundSize = 'cover';
   }
 }

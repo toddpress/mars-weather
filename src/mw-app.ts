@@ -5,6 +5,9 @@ import './mw-splash';
 import { LitElement, css, customElement, html, property } from 'lit-element';
 
 import { NASA_ROVER_DATA_URL } from '../consts';
+import { connect } from 'pwa-helpers';
+import { fetchSoles } from './store/actions';
+import { store } from './store';
 
 /**
  * An example element.
@@ -13,7 +16,7 @@ import { NASA_ROVER_DATA_URL } from '../consts';
  * @csspart button - The button
  */
 @customElement('mw-app')
-export class App extends LitElement {
+export class App extends connect(store)(LitElement) {
   static styles = css`
     :host {
     }
@@ -117,15 +120,13 @@ export class App extends LitElement {
       </div>
     `;
   }
-
+  stateChanged(state) {
+    this.soles = state.soles;
+    this.searchParams = state.searchParams;
+  }
   async firstUpdated(changed: Map<string | number | symbol, unknown>) {
     // @TODO - use descriptions data to populate tooltip when hovering respective props of a sol.
-    const { descriptions, soles } = await fetch(NASA_ROVER_DATA_URL)
-      .then((res) => res.json())
-      .catch((err) => console.error(err));
-    this.soles = soles.slice(0, 7).reverse();
-    let { sol } = this.soles.slice(-1)[0];
-    this.searchParams = { sol, camera: 'fhaz' };
+    store.dispatch(fetchSoles())
     super.firstUpdated(changed);
   }
   _onToggleClicked(evt: Event) {
