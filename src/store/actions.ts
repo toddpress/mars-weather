@@ -35,9 +35,15 @@ export const fetchSolsFailure = (error: string) => ({
 
 export const fetchNasaPic = (isAPOD: boolean = false) => async (dispatch, getState) => {
     dispatch(fetchNasaPicStarted());
+    const { soles, searchParams } = getState();
     try {
-        const searchParams = { ...getState().searchParams, ...(getState().soles.length && { sol: getState().soles[0].sol })  };
-        const src = isAPOD ? await NASA.fetchAPOD() : await NASA.fetchRoverPic(searchParams);
+        const params = {
+            ...searchParams,
+            ...(soles.length && {
+                sol: soles[0].sol
+            })
+        };
+        const src = isAPOD ? await NASA.fetchAPOD() : await NASA.fetchRoverPic(params);
         dispatch(fetchNasaPicSuccess(src))
     } catch(e) {
         dispatch(fetchNasaPicFailure(e.message))
